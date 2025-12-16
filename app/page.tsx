@@ -32,7 +32,7 @@ const Presentation = () => {
           }
           return prev + 1;
         });
-      }, 2000);
+      }, 3000);
     }
     return () => clearInterval(interval);
   }, [isPlaying, currentSlide]);
@@ -1166,7 +1166,7 @@ const Presentation = () => {
       content: (
         <div className="space-y-5">
           <div className="grid grid-cols-2 gap-5">
-            <div className="bg-red-50 p-5 rounded-lg shadow border-l-4 border-red-500">
+            {/* <div className="bg-red-50 p-5 rounded-lg shadow border-l-4 border-red-500">
               <div className="flex items-start space-x-3">
                 <XCircle className="text-red-500 w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
@@ -1179,9 +1179,9 @@ const Presentation = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="bg-red-50 p-5 rounded-lg shadow border-l-4 border-red-500">
+            {/* <div className="bg-red-50 p-5 rounded-lg shadow border-l-4 border-red-500">
               <div className="flex items-start space-x-3">
                 <XCircle className="text-red-500 w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
@@ -1209,8 +1209,8 @@ const Presentation = () => {
                   </p>
                 </div>
               </div>
-            </div>
-
+            </div> */}
+{/* 
             <div className="bg-orange-50 p-5 rounded-lg shadow border-l-4 border-orange-500">
               <div className="flex items-start space-x-3">
                 <XCircle className="text-orange-500 w-6 h-6 flex-shrink-0 mt-1" />
@@ -1284,9 +1284,9 @@ const Presentation = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="bg-purple-50 p-5 rounded-lg shadow border-l-4 border-purple-500">
+            {/* <div className="bg-purple-50 p-5 rounded-lg shadow border-l-4 border-purple-500">
               <div className="flex items-start space-x-3">
                 <XCircle className="text-purple-600 w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
@@ -1299,9 +1299,9 @@ const Presentation = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="bg-purple-50 p-5 rounded-lg shadow border-l-4 border-purple-500">
+            {/* <div className="bg-purple-50 p-5 rounded-lg shadow border-l-4 border-purple-500">
               <div className="flex items-start space-x-3">
                 <XCircle className="text-purple-600 w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
@@ -1314,7 +1314,7 @@ const Presentation = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="bg-gray-100 border-2 border-gray-300 p-5 rounded-lg">
@@ -1478,41 +1478,6 @@ const Presentation = () => {
             </p>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-100 to-blue-100 border-2 border-purple-300 p-6 rounded-lg">
-            <h4 className="font-bold text-center text-gray-800 mb-4">
-              Use Cases for Fake News Detection
-            </h4>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded-lg shadow text-center">
-                <div className="text-3xl mb-2">🔍</div>
-                <p className="font-semibold text-gray-800 mb-1">
-                  Image-Text Verification
-                </p>
-                <p className="text-xs text-gray-600">
-                  Check if captions match images
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow text-center">
-                <div className="text-3xl mb-2">🎯</div>
-                <p className="font-semibold text-gray-800 mb-1">
-                  Zero-Shot Classification
-                </p>
-                <p className="text-xs text-gray-600">
-                  Classify without specific training
-                </p>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow text-center">
-                <div className="text-3xl mb-2">⚡</div>
-                <p className="font-semibold text-gray-800 mb-1">
-                  Fast Similarity Search
-                </p>
-                <p className="text-xs text-gray-600">
-                  Quickly find matching/mismatching pairs
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="bg-gradient-to-r from-blue-500 to-green-500 text-white p-5 rounded-lg">
             <p className="text-center text-lg font-semibold">
               CLIP revolutionized multimodal learning by learning from natural
@@ -1546,41 +1511,31 @@ const Presentation = () => {
   return (
     <div className="w-full h-screen bg-gray-100 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white p-4 shadow-lg">
-        <div className="max-w-7xl mx-auto">
+      <div className="flex bg-linear-to-r from-blue-600 to-green-600 text-white p-4 shadow-lg">
+        <div className="flex-1 max-w-7xl mx-auto mr-30">
           <h2 className="text-xl font-bold">{slides[currentSlide].title}</h2>
           <p className="text-sm text-blue-100">
             {slides[currentSlide].subtitle}
           </p>
         </div>
-      </div>
-
-      {/* Content */}
-      <div className="flex-1 overflow-y-auto p-8">
-        <div className="max-w-7xl mx-auto">{slides[currentSlide].content}</div>
-      </div>
-
-      {/* Footer Navigation */}
-      <div className="bg-white border-t border-gray-300 p-4 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="w-fit flex gap-x-5 items-center justify-between">
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
-            className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`flex items-center space-x-2 px-3 py-3 rounded-full font-semibold transition-all ${
               currentSlide === 0
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                 : "bg-blue-500 text-white hover:bg-blue-600 shadow-md"
             }`}
           >
             <ChevronLeft className="w-5 h-5" />
-            <span>Previous</span>
           </button>
 
           <div className="flex items-center space-x-4">
-            <span className="text-gray-600 font-semibold">
+            <span className="text-white font-semibold">
               Slide {currentSlide + 1} of {slides.length}
             </span>
-            <div className="flex space-x-2">
+            {/* <div className="flex space-x-2">
               {slides.map((_, index) => (
                 <button
                   key={index}
@@ -1595,23 +1550,36 @@ const Presentation = () => {
                   }`}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
 
           <button
             onClick={nextSlide}
             disabled={currentSlide === slides.length - 1}
-            className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`flex items-center space-x-2 px-3 py-3 rounded-full font-semibold transition-all ${
               currentSlide === slides.length - 1
                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                 : "bg-blue-500 text-white hover:bg-blue-600 shadow-md"
             }`}
           >
-            <span>Next</span>
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </div>
+
+      {/* Content */}
+      <div className="flex-1 overflow-y-auto p-8">
+        <div className="max-w-7xl mx-auto">{slides[currentSlide].content}</div>
+      </div>
+
+      {/* Footer Navigation */}
+      {/* <div
+        className={`fixed bottom-0 left-0 right-0 border-t border-gray-300 p-4 shadow-lg
+        transition-all duration-300
+      `}
+      >
+       
+      </div> */}
     </div>
   );
 };
